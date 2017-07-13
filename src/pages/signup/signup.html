@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>CRIE SUA CONTA</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form>
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>EMAIL</ion-label>
+        <ion-input type="email" [(ngModel)]="credencial.email" name="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>SENHA</ion-label>
+        <ion-input type="password" [(ngModel)]="credencial.senha" name="password"></ion-input>
+      </ion-item>
+
+      <div padding>
+        <button ion-button color="primary" block (click)="doSignup()">CRIAR</button>
+      </div>
+
+    </ion-list>
+  </form>
+</ion-content>
