@@ -36,6 +36,16 @@ export class LoginProvider {
       }
     })
   }
+  
+  private callbackSuccessLogin(response){
+    this.loginSuccessEventEmitter.emit(response.user);
+    console.log(response);  
+  }
+
+  private callbackErrorLogin(error){
+    this.loginSuccessEventEmitter.emit({code: error.code, message: error.message, email:error.email,
+    credencial: error.credencial});
+  }
 
   loginWithCredential(credencial: Credencial){
     firebase.auth().signInWithEmailAndPassword(credencial.email, credencial.senha)
@@ -50,18 +60,23 @@ export class LoginProvider {
     .catch(error => this.callbackErrorLogin(error))
   }
 
+  loginWithFacebook(){
+    let provider = new firebase.auth.FacebookAuthProvider();
+    firebase.auth().signInWithPopup(provider)
+    .then(result => this.callbackSuccessLogin(result))
+    .catch(error => this.callbackErrorLogin(error))
+  }
+
+  logout(){
+    firebase.auth().signOut()
+    .then(() => this.logoutEventEmitter.emit(true))
+    .catch(error => this.callbackErrorLogin(error))
+  }
+
   register(credencial: Credencial){
     firebase.auth().createUserWithEmailAndPassword(credencial.email, credencial.senha)
     .then(result => console.log(result))
     .catch(error => console.log(error));
   }
 
-  private callbackSuccessLogin(response){
-    this.loginSuccessEventEmitter.emit(response.user);
-    console.log(response);  
-  }
-  private callbackErrorLogin(error){
-    this.loginSuccessEventEmitter.emit({code: error.code, message: error.message, email:error.email,
-    credencial: error.credencial});
-  }
 }

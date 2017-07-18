@@ -13,6 +13,11 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { LoginProvider } from '../providers/login/login';
+import { TaskListItemComponent } from '../components/task-list-item/task-list-item';
+import { TaskProvider } from '../providers/task/task';
+import { TaskListPage } from "../pages/task-list/task-list";
+import { TaskAddPage } from "../pages/task-add/task-add";
+import { LovProvider } from '../providers/lov/lov';
 
 const firebase_config = {
     apiKey: "AIzaSyBXn8Ac05xKKCloNK_YccLIt7-o7PRN4WM",
@@ -23,12 +28,16 @@ const firebase_config = {
     messagingSenderId: "163985631789"
   };
 
+
 @NgModule({
   declarations: [
     MyApp,
     WelcomePage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    TaskListPage,
+    TaskAddPage,
+    TaskListItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,13 +49,17 @@ const firebase_config = {
     MyApp,
     WelcomePage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    TaskListPage,
+    TaskAddPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    LoginProvider
+    LoginProvider,
+    TaskProvider,
+    LovProvider,
   ]
 })
 export class AppModule {

@@ -4,6 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Usuario } from "../../models/usuario";
 import { LoginProvider } from "../../providers/login/login";
 import { Credencial } from "../../models/credencial";
+import { TaskListPage } from "../task-list/task-list";
 
 @Component({
   selector: 'page-login',
@@ -23,14 +24,25 @@ export class LoginPage {
   credencial: Credencial; 
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+    this.credencial = new Credencial();
+    this.loginProvider.loginSuccessEventEmitter.subscribe(
+      user => this.navCtrl.setRoot(TaskListPage)
+    )
+    this.loginProvider.loginFalhaEventEmitter.subscribe(
+      error => console.log(error)
+    )
   }
 
   
   doLogin(){
     this.loginProvider.loginWithCredential(this.credencial)
   }
+
   doLoginGoogle(){
     this.loginProvider.loginWithGoogle()
+  }
+
+  doLoginFacebook(){
+    this.loginProvider.loginWithFacebook()
   }
 }
