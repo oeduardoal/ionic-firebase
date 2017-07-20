@@ -5,8 +5,8 @@ export class Tarefa{
     titulo:string;
     descricao:string;
     state:TarefaState;
-    
-    constructor(codigo?:number,titulo?:string, descricao?:string){
+
+    constructor(codigo?:number,titulo?:string, descricao?:string,state?:any){
         this.codigo = codigo;
         this.titulo = titulo;
         this.descricao = descricao;

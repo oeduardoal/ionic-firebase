@@ -11,11 +11,11 @@ import { TaskAddPage } from "../task-add/task-add";
 export class TaskListPage {
 
   tarefas:Array<Tarefa>;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams, public taskProvider: TaskProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TaskListPage');
     this.tarefas = this.taskProvider.getAll(); 
   }
   doAddTask(){

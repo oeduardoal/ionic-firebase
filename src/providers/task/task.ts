@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
 import { Tarefa } from "../../models/tarefa";
 @Injectable()
 export class TaskProvider {
-
 
   getAll():Array<Tarefa>{
     return new Array();

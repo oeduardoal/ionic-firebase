@@ -52,6 +52,7 @@ const firebase_config = {
     SignupPage,
     TaskListPage,
     TaskAddPage,
+    TaskListItemComponent,
   ],
   providers: [
     StatusBar,
