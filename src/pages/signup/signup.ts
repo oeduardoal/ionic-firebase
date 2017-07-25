@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { Usuario } from "../../models/usuario";
+// import { Usuario } from "../../models/usuario";
 import { LoginProvider } from "../../providers/login/login";
 import { Credencial } from '../../models/credencial';
 

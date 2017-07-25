@@ -25,14 +25,31 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <ion-list [virtualScroll]="tarefas">
-    <ion-item *virtualItem="let tarefa">
-      <task-list-item [tarefa="tarefa"]></task-list-item>
-    </ion-item>
+  <ion-list>
+    <ion-item-sliding *ngFor="let tarefa of tarefas">
+
+      <ion-item  (click)="atualizarTask(tarefa)">
+        <ion-avatar item-start>
+          <img src="http://placehold.it/200x200">
+        </ion-avatar>
+        <task-list-item [tarefa]="tarefa"></task-list-item>
+      </ion-item>
+
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="deletarTask(tarefa)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+         <button ion-button color="success" (click)="atualizarTask(tarefa)">
+          <ion-icon name="settings"></ion-icon>
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
   </ion-list>
 
   <ion-fab bottom right>
-    <button ion-fab color="primary" (click)="doAddTask()"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab color="primary" (click)="adicionarTask()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 
 

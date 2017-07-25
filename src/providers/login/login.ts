@@ -54,7 +54,7 @@ export class LoginProvider {
   }
 
   loginWithGoogle(){
-    let provider = new firebase.auth.GoogleAuthProvider();
+    let provider = new firebase.auth.GoogleAuthProvider;
     firebase.auth().signInWithPopup(provider)
     .then(result => this.callbackSuccessLogin(result))
     .catch(error => this.callbackErrorLogin(error))

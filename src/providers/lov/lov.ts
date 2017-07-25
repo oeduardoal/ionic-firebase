@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+// import { Http } from '@angular/http';
+// import 'rxjs/add/operator/map';
 import { TarefaState } from "../../models/tarefa-state";
 
 /*
